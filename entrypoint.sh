@@ -6,9 +6,12 @@ planet="${data}/planet.osm.bz2"
 imported_successful="${db}/imported_successful"
 nodemap="${db}/nodes.map"
 
-# Remove oldest socket
-socket=${db}/osm3s_v0.7.55_osm_base 
-test -e $socket && rm $socket 
+# Remove oldest sockets
+declare -a sockets=("${db}/osm3s_v0.7.55_osm_base" "${db}/osm3s_v0.7.55_areas")
+for socket in ${sockets[@]}; do 
+    echo "Remove $socket socket file"
+    test -e $socket && rm $socket 
+done
 
 # If not allready imported
 if [ ! -e "$imported_successful" ]; then
