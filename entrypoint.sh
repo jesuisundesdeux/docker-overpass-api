@@ -9,8 +9,10 @@ nodemap="${db}/nodes.map"
 # Remove oldest sockets
 declare -a sockets=("${db}/osm3s_v0.7.55_osm_base" "${db}/osm3s_v0.7.55_areas")
 for socket in ${sockets[@]}; do 
-    echo "Remove $socket socket file"
-    test -e $socket && rm $socket 
+    if [ -e $socket ]; then
+        echo "Remove $socket socket file"
+        rm $socket 
+    fi
 done
 
 # If not allready imported
