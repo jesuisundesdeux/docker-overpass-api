@@ -17,7 +17,7 @@ done
 
 # If not allready imported
 if [ ! -e "$imported_successful" ]; then
-    if [ "${data}/${PLANET_FILE}" != "" ]; then
+    if [ -n "${PLANET_FILE}" ]; then
         # Try copy local planet file
         if [ -e "${data}/${PLANET_FILE}" ]; then
             cp "${data}/${PLANET_FILE}" $planet
