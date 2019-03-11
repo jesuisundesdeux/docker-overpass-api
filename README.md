@@ -9,9 +9,10 @@ docker build -t docker-overpass-api .
 ## Run
 ```
 docker run --rm -it \
-    -e PLANET_URL="https://download.geofabrik.de/europe/france/languedoc-roussillon-latest.osm.bz2" \
+    -e PLANET_URL="https://download.geofabrik.de/europe/france-latest.osm.bz2" \
     -e FLUSH_SIZE=4 \
-    -p 80:80 -v $(pwd)/data:/data docker-overpass-api
+    -p 80:80 -v $(pwd)/data:/data badele/overpass-api:0.7.55
+
 
 # You can replace PLANET_URL by PLANET_FILE="languedoc-roussillon-latest.osm.bz2" (for use allready downloader local planet file)
 # Choose a PLANET_URL from this website => http://download.geofabrik.de/
